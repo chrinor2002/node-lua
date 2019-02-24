@@ -183,7 +183,7 @@ void LuaState::AddPackagePath(const Nan::FunctionCallbackInfo<v8::Value>& info){
 	if (path.back() == '/') {
 		path.pop_back();
 	}
-	std::string code = std::string("package.path = package.path .. '") + path + "/?.lua;';";
+	std::string code = std::string("package.path = package.path .. ';") + path + "/?.lua;';";
 
 	if(luaL_dostring(L, code.c_str())) {
 		char buf[1024];
